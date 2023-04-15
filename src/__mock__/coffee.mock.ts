@@ -26,3 +26,16 @@ export const coffeeMock2 = rest.get(coffeeEndpoint, (_, response, context) =>
     context.json([{ title: "mock_coffee: 2" }] as Coffee[])
   )
 );
+
+/**
+ * コーヒーの銘柄を返却するAPIのmock: error
+ */
+export const coffeeMockError = rest.get(
+  coffeeEndpoint,
+  (_, response, context) =>
+    response(
+      context.delay(500),
+      context.status(500),
+      context.json([{ error: { message: "internal server error" } }])
+    )
+);
