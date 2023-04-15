@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+import { coffeeEndpoint } from "./endpoint";
 
 export const App = () => {
   const [coffees, setCoffees] = useState(null);
 
   const getData = async () => {
-    const response = await fetch("https://api.sampleapis.com/coffee/hot");
+    const response = await fetch(coffeeEndpoint);
     const json = await response.json();
     setCoffees(json);
   };
