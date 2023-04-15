@@ -1,29 +1,9 @@
-import { useEffect, useState } from "react";
-import { coffeeEndpoint } from "./endpoint";
-
-type CoffeeResponse = {
-  id: string;
-  title: string;
-  description: string;
-  ingredients: string[];
-  image: string;
-}[];
+import { useGetCoffee } from "./hooks/useGetCoffee";
 
 export const App: React.FC = () => {
-  const [coffees, setCoffees] = useState<CoffeeResponse>();
+  const { coffees, isError } = useGetCoffee();
 
-  const getData = async () => {
-    const response = await fetch(coffeeEndpoint);
-    const json = await response.json();
-    setCoffees(json);
-  };
-
-  useEffect(() => {
-    (async () => {
-      await getData();
-    })();
-  }, []);
-
+  if (isError) return <h1>Internal Server Error</h1>;
   return (
     <>
       <h1>Coffee List</h1>
