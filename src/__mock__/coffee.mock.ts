@@ -6,16 +6,23 @@ type Coffee = {
 };
 
 /**
- * コーヒーの銘柄を返却するAPIのmock
+ * コーヒーの銘柄を返却するAPIのmock: 1
  */
 export const coffeeMock = rest.get(coffeeEndpoint, (_, response, context) =>
   response(
     context.delay(500),
     context.status(200),
-    context.json([
-      { title: "mock coffee 1" },
-      { title: "mock coffee 2" },
-      { title: "mock coffee 3" },
-    ] as Coffee[])
+    context.json([{ title: "mock_coffee: 1" }] as Coffee[])
+  )
+);
+
+/**
+ * コーヒーの銘柄を返却するAPIのmock: 2
+ */
+export const coffeeMock2 = rest.get(coffeeEndpoint, (_, response, context) =>
+  response(
+    context.delay(500),
+    context.status(200),
+    context.json([{ title: "mock_coffee: 2" }] as Coffee[])
   )
 );
