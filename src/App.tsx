@@ -1,8 +1,16 @@
 import { useEffect, useState } from "react";
 import { coffeeEndpoint } from "./endpoint";
 
-export const App = () => {
-  const [coffees, setCoffees] = useState(null);
+type CoffeeResponse = {
+  id: string;
+  title: string;
+  description: string;
+  ingredients: string[];
+  image: string;
+}[];
+
+export const App: React.FC = () => {
+  const [coffees, setCoffees] = useState<CoffeeResponse>();
 
   const getData = async () => {
     const response = await fetch(coffeeEndpoint);
@@ -10,7 +18,11 @@ export const App = () => {
     setCoffees(json);
   };
 
-  useEffect(() => getData, []);
+  useEffect(() => {
+    (async () => {
+      await getData();
+    })();
+  }, []);
 
   return (
     <>
