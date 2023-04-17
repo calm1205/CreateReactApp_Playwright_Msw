@@ -2,7 +2,10 @@
 import { useQueryCoffee } from "./hooks/useQueryCoffee";
 
 export const App: React.FC = () => {
-  // const { coffees, isError } = useGetCoffee();
+  // fetch
+  // const { coffees } = useGetCoffee();
+
+  // react-query
   const { coffees } = useQueryCoffee();
 
   return (
