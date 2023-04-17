@@ -1,3 +1,6 @@
+/**
+ * コーヒー銘柄のレスポンス
+ */
 export type CoffeeResponse = {
   id: string;
   title: string;

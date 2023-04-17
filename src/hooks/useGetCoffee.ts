@@ -3,7 +3,7 @@ import { coffeeEndpoint } from "../endpoint";
 import { CoffeeResponse } from "./types";
 
 /**
- * コーヒーの銘柄一覧を取得
+ * fetch: コーヒーの銘柄取得
  */
 export const useGetCoffee = () => {
   const [coffees, setCoffees] = useState<CoffeeResponse>();
