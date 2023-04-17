@@ -1,16 +1,6 @@
 import { useEffect, useState } from "react";
 import { coffeeEndpoint } from "../endpoint";
-
-type CoffeeResponse = {
-  id: string;
-  title: string;
-  description: string;
-  ingredients: string[];
-  image: string;
-  error?: {
-    message: string;
-  };
-}[];
+import { CoffeeResponse } from "./types";
 
 /**
  * コーヒーの銘柄一覧を取得

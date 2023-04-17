@@ -1,9 +1,10 @@
-import { useGetCoffee } from "./hooks/useGetCoffee";
+// import { useGetCoffee } from "./hooks/useGetCoffee";
+import { useQueryCoffee } from "./hooks/useQueryCoffee";
 
 export const App: React.FC = () => {
-  const { coffees, isError } = useGetCoffee();
+  // const { coffees, isError } = useGetCoffee();
+  const { coffees } = useQueryCoffee();
 
-  if (isError) return <h1>Internal Server Error</h1>;
   return (
     <>
       <h1>Coffee List</h1>
